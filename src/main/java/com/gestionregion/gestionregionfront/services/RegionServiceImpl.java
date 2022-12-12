@@ -56,7 +56,7 @@ public class RegionServiceImpl implements RegionService {
     public Optional<Region> getByNameRegion(String name) {
         return regionRepository.findByNomRegion(name);
     }
-   /* public boolean existsByName(String name){
+   /*public boolean existsByName(String name){
         return regionRepository.existsByName(name);
     }*/
     public boolean existsById(Long id){

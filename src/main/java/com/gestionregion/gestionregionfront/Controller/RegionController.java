@@ -39,7 +39,13 @@ public class RegionController {
     public ResponseEntity<?> create(@RequestBody RegionDto regionDto){
         if(StringUtils.isBlank(regionDto.getCodeRegion()))
             return new ResponseEntity(new Message("Le code de la region est obligatoire"), HttpStatus.BAD_REQUEST);
-       /* if(regionRepository.existsByName(regionDto.getNomRegion()))
+
+        Region regionVerif = regionService.getByNameRegion(regionDto.getNomRegion()).get();
+
+            if(regionVerif != null){
+                return new ResponseEntity(new Message("Ce nom existe déjà"), HttpStatus.BAD_REQUEST);
+            }
+            /*if(regionRepository.existsByName(regionDto.getNomRegion()))
             return new ResponseEntity(new Message("Ce nom existe déjà"), HttpStatus.BAD_REQUEST);*/
         Region region = new Region(regionDto.getCodeRegion(), regionDto.getNomRegion(), regionDto.getLangueMajoritaire(),
                 regionDto.getDomaineActiviteRegion(), regionDto.getSuperficie(), regionDto.getPays());
@@ -87,5 +93,25 @@ public class RegionController {
     public Iterable<Object[]> getRegionsSP(){
         return regionService.getRegionsSP();
     }
+
+
+    @ApiOperation(value = "Voir les details d'une region")
+    @GetMapping("/detail/{id}")
+    public ResponseEntity<Region> getById(@PathVariable("id") Long id, @RequestBody Region region){
+        if(!regionRepository.existsById(id))
+            return new ResponseEntity(new Message("La region n'existe pas"), HttpStatus.NOT_FOUND);
+        Region r = regionService.getOne(id).get();
+        return new ResponseEntity(r, HttpStatus.OK);
+    }
+
+   /* @ApiOperation(value = "Chercher une region")
+    @GetMapping("/detailname/{nombre}")
+    public ResponseEntity<Region> getByNombre(@PathVariable("nombre") String nombre){
+        if(!regionRepository.existsByName(nombre))
+            return new ResponseEntity(new Message("La region {} n'existe pas"+regionRepository.existsByName(nombre)), HttpStatus.NOT_FOUND);
+        Region regio = regionService.getByNameRegion(nombre).get();
+        return new ResponseEntity(regio, HttpStatus.OK);
+    }*/
+
 
 }
