@@ -16,7 +16,7 @@ public interface RegionService {
 
     String supprimer(long id_Region);
     Optional<Region> getOne(Long id);
-    Optional<Region> getByNameRegion(String name);
+    Region getByNameRegion(String name);
 
     Iterable<Object[]> getRegionsSP();
 

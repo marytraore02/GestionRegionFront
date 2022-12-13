@@ -53,11 +53,11 @@ public class RegionServiceImpl implements RegionService {
     }
 
     @Override
-    public Optional<Region> getByNameRegion(String name) {
+    public Region getByNameRegion(String name) {
         return regionRepository.findByNomRegion(name);
     }
-   /*public boolean existsByName(String name){
-        return regionRepository.existsByName(name);
+   /*public boolean existsByName(String nom){
+        return regionRepository.existsByNomRegion(nom);
     }*/
     public boolean existsById(Long id){
         return regionRepository.existsById(id);

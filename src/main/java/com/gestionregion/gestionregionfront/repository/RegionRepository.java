@@ -10,10 +10,10 @@ import java.util.Optional;
 
 @Repository
 public interface RegionRepository extends JpaRepository<Region, Long> {
-    Optional<Region> findByNomRegion(String nomRegion);
-   // boolean existsByName(String name);
+    Region findByNomRegion(String nomRegion);
+    //boolean existsByName(String nom);
 
-    @Query(value = "SELECT id_region,code_region,nom_regiojn,domaine_activite_region,superficie,langue_majoritaire FROM region", nativeQuery = true)
+    @Query(value = "SELECT id_region,code_region,nom_region,domaine_activite_region,superficie,langue_majoritaire FROM region", nativeQuery = true)
     Iterable<Object[]> getRegionsSP ();
 
 
