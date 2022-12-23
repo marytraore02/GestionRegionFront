@@ -35,6 +35,7 @@ public class RegionServiceImpl implements RegionService {
                         p.setCodeRegion(region.getCodeRegion());
                         p.setNomRegion(region.getNomRegion());
                         p.setDomaineActiviteRegion(region.getDomaineActiviteRegion());
+                        p.setDescriptionRegion(region.getDescriptionRegion());
                         p.setSuperficie(region.getSuperficie());
                         p.setLangueMajoritaire(region.getLangueMajoritaire());
                         return regionRepository.save(p);

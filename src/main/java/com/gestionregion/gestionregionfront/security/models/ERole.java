@@ -1,7 +1,10 @@
 package com.gestionregion.gestionregionfront.security.models;
 
 public enum ERole {
-  LOCAL, GOOGLE,
   ROLE_USER,
-  ROLE_ADMIN
+  ROLE_MODERATOR,
+  ROLE_ADMIN,
+
+  LOCAL, GOOGLE
+
 }

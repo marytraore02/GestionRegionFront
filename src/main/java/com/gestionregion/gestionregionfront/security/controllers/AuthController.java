@@ -18,7 +18,7 @@ import com.gestionregion.gestionregionfront.security.payload.request.LoginReques
 import com.gestionregion.gestionregionfront.security.payload.request.SignupRequest;
 import com.gestionregion.gestionregionfront.security.payload.response.JwtResponse;
 import com.gestionregion.gestionregionfront.security.payload.response.MessageResponse;
-import com.gestionregion.gestionregionfront.security.repository.RoleRepository;
+import com.gestionregion.gestionregionfront.security.repository.RoleRepositoty;
 import com.gestionregion.gestionregionfront.security.repository.UserRepository;
 import com.gestionregion.gestionregionfront.security.security.services.CrudService;
 import com.gestionregion.gestionregionfront.security.security.services.UserDetailsImpl;
@@ -43,7 +43,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@CrossOrigin(origins = "*", maxAge = 3600)
+
+@CrossOrigin(origins = "http://localhost:4200/", maxAge = 3600, allowCredentials="true")
 @RestController
 @RequestMapping("/api/auth")
 public class AuthController {
@@ -57,7 +58,7 @@ public class AuthController {
   UserRepository userRepository;
 
   @Autowired
-  RoleRepository roleRepository;
+  RoleRepositoty roleRepository;
 
   @Autowired
   PasswordEncoder encoder;
@@ -111,8 +112,9 @@ public class AuthController {
     Set<Role> roles = new HashSet<>();
 
     if (strRoles == null) {
+
       Role userRole = roleRepository.findByName(ERole.ROLE_USER)
-              .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
+             .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
       roles.add(userRole);
     } else {
       strRoles.forEach(role -> {
@@ -127,7 +129,7 @@ public class AuthController {
             break;
           default:
             Role userRole = roleRepository.findByName(ERole.ROLE_USER)
-                    .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
+                   .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
             roles.add(userRole);
         }
       });

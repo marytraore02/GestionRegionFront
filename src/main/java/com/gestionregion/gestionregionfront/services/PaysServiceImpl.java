@@ -46,4 +46,9 @@ public class PaysServiceImpl implements PaysService {
         return "Pays supprimé";
     }
 
+    @Override
+    public Pays RecupererParId(Long id) {
+        return paysRepository.findById(id).get();
+    }
+
 }

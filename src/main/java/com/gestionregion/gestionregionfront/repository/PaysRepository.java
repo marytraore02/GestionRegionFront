@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface PaysRepository extends JpaRepository<Pays, Long> {
-    Pays findByNomPays(String nom_pays);
+    Pays findByNomPays(String nomPays);
 }

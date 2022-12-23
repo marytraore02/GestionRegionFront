@@ -9,6 +9,8 @@ import lombok.Setter;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 
+
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
@@ -16,9 +18,13 @@ import javax.validation.constraints.NotBlank;
 public class RegionDto {
 
     @NotBlank
+    private String ImageRegion;
+    @NotBlank
     private String codeRegion;
     @NotBlank
     private String nomRegion;
+    @NotBlank
+    private String descriptionRegion;
     @NotBlank
     private String domaineActiviteRegion;
     @NotBlank
@@ -27,5 +33,6 @@ public class RegionDto {
     private String langueMajoritaire;
 
     private Pays pays;
+
 
 }

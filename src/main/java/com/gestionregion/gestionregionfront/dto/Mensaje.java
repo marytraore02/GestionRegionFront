@@ -1,9 +1,9 @@
 package com.gestionregion.gestionregionfront.dto;
 
-public class Message {
+public class Mensaje {
     private String mensaje;
 
-    public Message(String mensaje) {
+    public Mensaje(String mensaje) {
         this.mensaje = mensaje;
     }
 
