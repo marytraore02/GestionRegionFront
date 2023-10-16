@@ -9,6 +9,7 @@ public interface PaysService {
 
     Pays creer (Pays pays);
     Pays getNomPays( String nom);
+    boolean existsByNomPays(String name);
     //Pays getPays(Pays pays);
     List<Pays> lire();
     Pays modifier(Long id_pays, Pays pays);

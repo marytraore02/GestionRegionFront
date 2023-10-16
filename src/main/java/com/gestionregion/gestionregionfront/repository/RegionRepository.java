@@ -12,7 +12,7 @@ import java.util.Optional;
 public interface RegionRepository extends JpaRepository<Region, Long> {
     Region findByNomRegion(String nomRegion);
     //boolean existsByName(String nom);
-
+    boolean existsByNomRegion(String name);
     @Query(value = "SELECT id_region,code_region,nom_region,domaine_activite_region,superficie,langue_majoritaire FROM region", nativeQuery = true)
     Iterable<Object[]> getRegionsSP ();
 

@@ -29,7 +29,7 @@ public class RegionServiceImpl implements RegionService {
     }
 
     @Override
-    public Region modifier(Long id, RegionDto region) {
+    public Region modifier(Long id, Region region) {
             return regionRepository.findById(id)
                     .map(p->{
                         p.setCodeRegion(region.getCodeRegion());
@@ -49,6 +49,11 @@ public class RegionServiceImpl implements RegionService {
     }
 
     @Override
+    public Region RecupererParId(Long id) {
+        return regionRepository.getReferenceById(id);
+    }
+
+    @Override
     public Optional<Region> getOne(Long id) {
         return regionRepository.findById(id);
     }
@@ -57,9 +62,15 @@ public class RegionServiceImpl implements RegionService {
     public Region getByNameRegion(String name) {
         return regionRepository.findByNomRegion(name);
     }
-   /*public boolean existsByName(String nom){
-        return regionRepository.existsByNomRegion(nom);
-    }*/
+
+    @Override
+    public boolean existsByNomRegion(String name) {
+        return regionRepository.existsByNomRegion(name);
+    }
+
+    /*public boolean existsByName(String nom){
+         return regionRepository.existsByNomRegion(nom);
+     }*/
     public boolean existsById(Long id){
         return regionRepository.existsById(id);
     }

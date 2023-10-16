@@ -28,10 +28,10 @@ public class Commentaire {
     @ManyToOne
     Region region;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    private Commentaire commentaire;
+//    @ManyToOne(cascade = CascadeType.ALL)
+//    private Commentaire commentaire;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "commentaire")
-    List<Commentaire> sousCommentaire = new ArrayList<>();
+//    @JsonIgnore
+//    @OneToMany(mappedBy = "commentaire")
+//    List<Commentaire> sousCommentaire = new ArrayList<>();
 }

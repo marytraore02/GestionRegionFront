@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Getter
 @Setter
@@ -16,11 +17,10 @@ public class Population {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="id")
+    @Column(name="id_population")
     private Long idPopulation;
-    private String NbPopulation;
-    @Column(length = 4)
-    private Long AnneePopulation;
+    private String nbPopulation;
+    private String anneePopulation;
 
     @ManyToOne
     private Region region;

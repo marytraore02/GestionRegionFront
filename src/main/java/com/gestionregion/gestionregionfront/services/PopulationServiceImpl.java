@@ -43,4 +43,9 @@ public class PopulationServiceImpl implements PopulationService {
         return "Population supprimé";
     }
 
+    @Override
+    public Population GetOne(long id_population) {
+        return populationRepository.getReferenceById(id_population);
+    }
+
 }

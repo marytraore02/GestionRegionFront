@@ -25,6 +25,11 @@ public class PaysServiceImpl implements PaysService {
         return paysRepository.findByNomPays(nom);
     }
 
+    @Override
+    public boolean existsByNomPays(String name) {
+        return paysRepository.existsByNomPays(name);
+    }
+
 
     @Override
     public List<Pays> lire() {
@@ -36,6 +41,8 @@ public class PaysServiceImpl implements PaysService {
         return paysRepository.findById(id_pays)
                 .map(p->{
                     p.setNomPays(pays.getNomPays());
+                    p.setDescriptionPays(pays.getDescriptionPays());
+                    p.setSuperficiePays(pays.getSuperficiePays());
                     return paysRepository.save(p);
                 }).orElseThrow(()-> new RuntimeException("Pays non trouvé !"));
     }

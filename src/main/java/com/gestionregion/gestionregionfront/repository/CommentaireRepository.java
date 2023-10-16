@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface CommentaireRepository extends JpaRepository<Commentaire, Long> {
-    List<Commentaire> findByCommentaire(Commentaire commentaire);
+//    List<Commentaire> findByCommentaire(Commentaire commentaire);
 
     List<Commentaire> findByRegion(Region region);
 }

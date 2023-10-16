@@ -22,7 +22,7 @@ public interface CommentaireService {
     List<Commentaire> retrouverParRegion(Region region);
 
     // retrouver etat par Commentaire
-    List<Commentaire> retrouverParCommentaire(Commentaire commentaire);
+//    List<Commentaire> retrouverParCommentaire(Commentaire commentaire);
 
     // retrouver etat par id
     Commentaire retrouverParId(Long id);

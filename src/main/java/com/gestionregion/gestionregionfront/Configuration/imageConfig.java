@@ -15,8 +15,11 @@ public class imageConfig {
     public static String localhost = "http://localhost/";
     public static String serveruser = localhost + "regions/images/utilisateurs/";
     public static String serverregion = localhost + "regions/images/regions/";
+    public static String serverpays = localhost + "regions/images/pays/";
+
 
     public static String Regionlocation = "/Applications/XAMPP/xamppfiles/htdocs/regions/images/regions";
+    public static String Payslocation = "/Applications/XAMPP/xamppfiles/htdocs/regions/images/pays";
     public static String Userlocation = "/Applications/XAMPP/xamppfiles/htdocs/regions/images/utilisateurs";
 
     public static String save(String typeImage, MultipartFile file, String nomFichier) {
@@ -26,10 +29,12 @@ public class imageConfig {
         if (typeImage == "user") {
             location = Userlocation;
             server = serveruser;
-        } else {
+        } else if(typeImage == "region") {
             location = Regionlocation;
             server = serverregion;
-
+        } else {
+            location = Payslocation;
+            server = serverpays;
         }
 
         /// debut de l'enregistrement

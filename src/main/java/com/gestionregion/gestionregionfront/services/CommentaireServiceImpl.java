@@ -48,10 +48,10 @@ public class CommentaireServiceImpl implements CommentaireService{
     }
 
 
-    @Override
-    public List<Commentaire> retrouverParCommentaire(Commentaire commentaire) {
-        return repos.findByCommentaire(commentaire);
-    }
+//    @Override
+//    public List<Commentaire> retrouverParCommentaire(Commentaire commentaire) {
+//        return repos.findByCommentaire(commentaire);
+//    }
 
     @Override
     public Commentaire retrouverParId(Long id) {
